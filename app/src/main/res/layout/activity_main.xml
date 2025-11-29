@@ -9,18 +9,18 @@
 
     <TextView
         android:id="@+id/logDisplayTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_width="390dp"
+        android:layout_height="200dp"
         android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:text="Hello World!"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Exercise row -->
     <TextView
         android:id="@+id/exerciseLabelTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="@string/exercise"
         android:textSize="20sp"
@@ -32,7 +32,7 @@
     <!-- Weight row -->
     <EditText
         android:id="@+id/exerciseInputEditText"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:hint="@string/enter_an_exercise"
@@ -43,12 +43,12 @@
 
     <TextView
         android:id="@+id/weightLabelTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="36dp"
         android:text="@string/weight"
         android:textSize="20sp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exerciseInputEditText" />
 
