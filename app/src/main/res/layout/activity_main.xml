@@ -29,15 +29,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logDisplayTextView" />
 
-    <!-- Weight row -->
     <EditText
         android:id="@+id/exerciseInputEditText"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="273dp"
+        android:layout_height="39dp"
         android:layout_marginStart="8dp"
         android:hint="@string/enter_an_exercise"
+        android:inputType="textAutoComplete"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/exerciseLabelTextView"
         app:layout_constraintTop_toTopOf="@+id/exerciseLabelTextView" />
 
@@ -46,22 +46,21 @@
         android:layout_width="100dp"
         android:layout_height="36dp"
         android:text="@string/weight"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exerciseInputEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/exerciseLabelTextView" />
 
-    <!-- Reps row -->
     <EditText
         android:id="@+id/weightInputEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="273dp"
+        android:layout_height="39dp"
         android:layout_marginStart="8dp"
         android:hint="@string/enter_a_weight"
         android:inputType="number|numberDecimal"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/weightLabelTextView"
         app:layout_constraintTop_toTopOf="@id/weightLabelTextView" />
 
@@ -78,8 +77,8 @@
 
     <EditText
         android:id="@+id/repInputEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="273dp"
+        android:layout_height="39dp"
         android:hint="@string/enter_reps"
         android:inputType="number"
         android:layout_marginStart="8dp"
