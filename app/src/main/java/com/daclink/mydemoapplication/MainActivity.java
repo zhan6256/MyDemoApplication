@@ -8,11 +8,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.daclink.mydemoapplication.databinding.ActivityMainBinding;
+
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-    com.daclink.mydemoapplication.databinding.ActivityMainBinding binding;
-    private static final String TAG = "DAC_GYMLOG";
+    ActivityMainBinding binding;
+    public static final String TAG = "DAC_GYMLOG";
     String mExercise ="";
     double mWeight = 0.0;
     int mReps = 0;
