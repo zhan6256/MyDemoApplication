@@ -8,27 +8,38 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.daclink.mydemoapplication.Database.GymLogRepository;
 import com.daclink.mydemoapplication.databinding.ActivityMainBinding;
 
 import java.util.Locale;
 
+import com.daclink.mydemoapplication.Database.entities.GymLog;
+
+
+
+
 public class MainActivity extends AppCompatActivity {
-    ActivityMainBinding binding;
+    private ActivityMainBinding binding;
+    private GymLogRepository repository;
     public static final String TAG = "DAC_GYMLOG";
     String mExercise ="";
     double mWeight = 0.0;
     int mReps = 0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = com.daclink.mydemoapplication.databinding.ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        repository =  GymLogRepository.getRepository(getApplication());
         binding.logDisplayTextView.setMovementMethod(new ScrollingMovementMethod());
         binding.logButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 // Read the text from EditTexts
                 getInformationFromDisplay();
+                insertGymlogRecord();
 
                 // Update the "Hello World" TextView
                 updateDisplay();
@@ -36,12 +47,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void insertGymlogRecord(){
+        GymLog log = new GymLog(mExercise, mWeight, mReps);
+        repository.insertGymLog(log);
+    }
+
     private void updateDisplay(){
         String currentInfo = binding.logDisplayTextView.getText().toString();
         Log.d(TAG,"current info: "+currentInfo);
         String newDisplay = String.format(Locale.US,"Exercise:%s%nWeight:%.2f%nReps:%d%n=-=-=-=%n%s",mExercise, mWeight, mReps,currentInfo);
         binding.logDisplayTextView.setText(newDisplay);
-
+        Log.i(TAG, repository.getAllLogs().toString());
     }
     private void getInformationFromDisplay(){
         mExercise = binding.exerciseInputEditText.getText().toString();
