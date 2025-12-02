@@ -3,7 +3,7 @@ package com.daclink.mydemoapplication.Database;
 import android.app.Application;
 import android.util.Log;
 
-import androidx.room.RoomDatabase;
+import androidx.lifecycle.LiveData;
 
 import com.daclink.mydemoapplication.Database.entities.GymLog;
 import com.daclink.mydemoapplication.Database.entities.User;
@@ -76,19 +76,13 @@ public class GymLogRepository {
         });
     }
 
-    public User getUserByUserName(String username) {
-        Future<User> future = GymLogDatabase.databaseWriteExecutor.submit(
-                new Callable<User>(){
-                    @Override
-                    public User call() throws Exception {
-                        return userDAO.getUserByUserName(username);
-                    }
-                });
-        try {
-            future.get();
-        }catch (InterruptedException |ExecutionException e){
-            Log.i(MainActivity.TAG, "Problem when getting user by username");
-        }
-        return null;
+    public LiveData<User> getUserByUserName(String username) {
+
+        return userDAO.getUserByUserName(username);
+    }
+
+    public LiveData<User> getUserByUserId(int userId) {
+
+        return userDAO.getUserByUserId(userId);
     }
 }
